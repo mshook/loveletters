@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christopher Strachey Love Letters (1952)</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #f5f5dc 0%, #e6e6e6 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            border: 3px solid #e50;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e50;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            color: #e50;
+            font-size: 2.2em;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .header p {
+            color: #666;
+            font-style: italic;
+            margin: 10px 0 0 0;
+        }
+        
+        .letter-display {
+            background: linear-gradient(to right, #fffef7, #fff);
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            min-height: 200px;
+            font-size: 1.1em;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            text-transform: uppercase;
+            color: #444;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .generate-btn {
+            background: linear-gradient(45deg, #e50, #ff6b35);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(229, 0, 0, 0.3);
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(229, 0, 0, 0.4);
+            background: linear-gradient(45deg, #ff6b35, #e50);
+        }
+        
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+        
+        .info {
+            background: #f9f9f9;
+            border-left: 5px solid #e50;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .info h3 {
+            color: #e50;
+            margin-top: 0;
+        }
+        
+        .info a {
+            color: #e50;
+            text-decoration: none;
+        }
+        
+        .info a:hover {
+            text-decoration: underline;
+        }
+        
+        .word-lists {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        
+        .word-list {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .word-list h4 {
+            color: #e50;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        
+        .words {
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .letter-display {
+                padding: 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Love Letter Generator</h1>
+            <p>Christopher Strachey's Historic Algorithm (1952)</p>
+        </div>
+        
+        <button class="generate-btn" onclick="generateLetter()">Generate Love Letter</button>
+        
+        <div class="letter-display" id="letterDisplay">
+            Click the button above to generate a romantic love letter using Christopher Strachey's pioneering computer algorithm from 1952.
+        </div>
+        
+        <div class="info">
+            <h3>About This Program</h3>
+            <p>This is a recreation of Christopher Strachey's love letter generator, one of the earliest examples of computer-generated creative writing. Originally written in 1952 for the Manchester Mark 1 computer, it used random word selection to create romantic messages.</p>
+            
+            <div class="word-lists">
+                <div class="word-list">
+                    <h4>Salutations 1</h4>
+                    <div class="words">Beloved, Darling, Dear, Dearest, Fanciful, Honey</div>
+                </div>
+                <div class="word-list">
+                    <h4>Salutations 2</h4>
+                    <div class="words">Chickpea, Dear, Duck, Jewel, Love, Moppet, Sweetheart</div>
+                </div>
+                <div class="word-list">
+                    <h4>Adjectives</h4>
+                    <div class="words">affectionate, amorous, anxious, avid, beautiful, breathless, burning, covetous, craving, curious, eager, fervent, fondest, loveable, lovesick, loving, passionate, precious, seductive, sweet, sympathetic, tender, unsatisfied, winning, wistful</div>
+                </div>
+                <div class="word-list">
+                    <h4>Nouns</h4>
+                    <div class="words">adoration, affection, ambition, appetite, ardour, being, burning, charm, craving, desire, devotion, eagerness, enchantment, enthusiasm, fancy, fellow feeling, fervour, fondness, heart, hunger, infatuation, little liking, longing, love, lust, passion, rapture, sympathy, thirst, wish, yearning</div>
+                </div>
+                <div class="word-list">
+                    <h4>Adverbs</h4>
+                    <div class="words">affectionately, ardently, anxiously, beautifully, burningly, covetously, curiously, eagerly, fervently, fondly, impatiently, keenly, lovingly, passionately, seductively, tenderly, wistfully</div>
+                </div>
+                <div class="word-list">
+                    <h4>Verbs</h4>
+                    <div class="words">adores, attracts, clings to, holds dear, hopes for, hungers for, likes, longs for, loves, lusts after, pants for, pines for, sighs for, tempts, thirsts for, treasures, yearns for, woos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Word arrays - same as original PHP
+        const sals1 = ["Beloved", "Darling", "Dear", "Dearest", "Fanciful", "Honey"];
+        const sals2 = ["Chickpea", "Dear", "Duck", "Jewel", "Love", "Moppet", "Sweetheart"];
+        const adjs = ["affectionate", "amorous", "anxious", "avid", "beautiful", "breathless", "burning", "covetous", "craving", "curious", "eager", "fervent", "fondest", "loveable", "lovesick", "loving", "passionate", "precious", "seductive", "sweet", "sympathetic", "tender", "unsatisfied", "winning", "wistful"];
+        const nouns = ["adoration", "affection", "ambition", "appetite", "ardour", "being", "burning", "charm", "craving", "desire", "devotion", "eagerness", "enchantment", "enthusiasm", "fancy", "fellow feeling", "fervour", "fondness", "heart", "hunger", "infatuation", "little liking", "longing", "love", "lust", "passion", "rapture", "sympathy", "thirst", "wish", "yearning"];
+        const advs = ["affectionately", "ardently", "anxiously", "beautifully", "burningly", "covetously", "curiously", "eagerly", "fervently", "fondly", "impatiently", "keenly", "lovingly", "passionately", "seductively", "tenderly", "wistfully"];
+        const verbs = ["adores", "attracts", "clings to", "holds dear", "hopes for", "hungers for", "likes", "longs for", "loves", "lusts after", "pants for", "pines for", "sighs for", "tempts", "thirsts for", "treasures", "yearns for", "woos"];
+
+        // Constants for sentence types
+        const SHORT = 1;
+        const LONG = 2;
+
+        // Random selection function
+        function randomFrom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        // Main letter generation function
+        function generateLetter() {
+            let letter = "Christopher Strachey \"Loveletters\" (1952)\n\n";
+            let last = null;
+
+            // Opening salutation
+            letter += `${randomFrom(sals1)} ${randomFrom(sals2)},\n     `;
+
+            // Generate 5 sentences
+            for (let i = 0; i < 5; i++) {
+                if (Math.random() < 0.5) {
+                    // LONG sentence
+                    const optadj1 = Math.random() < 0.5 ? '' : randomFrom(adjs);
+                    const noun1 = randomFrom(nouns);
+                    const optadv = Math.random() < 0.5 ? '' : randomFrom(advs);
+                    const verb = randomFrom(verbs);
+                    const optadj2 = Math.random() < 0.5 ? '' : randomFrom(adjs);
+                    const noun2 = randomFrom(nouns);
+
+                    let concat = '';
+                    if (last !== null && last === LONG) {
+                        concat = '. ';
+                    }
+
+                    let sentence = `${concat}My `;
+                    if (optadj1) sentence += `${optadj1} `;
+                    sentence += noun1;
+                    if (optadv) sentence += ` ${optadv}`;
+                    sentence += ` ${verb} your `;
+                    if (optadj2) sentence += `${optadj2} `;
+                    sentence += noun2;
+
+                    letter += sentence;
+                    last = LONG;
+                } else {
+                    // SHORT sentence
+                    const adj = randomFrom(adjs);
+                    const noun = randomFrom(nouns);
+                    let concat = '';
+
+                    if (last === SHORT) {
+                        concat = ', ';
+                    } else if (last === LONG) {
+                        concat = '. You are';
+                    } else {
+                        concat = 'You are ';
+                    }
+
+                    letter += `${concat} my ${adj} ${noun}`;
+                    last = SHORT;
+                }
+            }
+
+            // Closing
+            const adv = randomFrom(advs);
+            letter += `.\n     Yours ${adv},\n     M.U.C.\n`;
+
+            // Display the letter
+            document.getElementById('letterDisplay').textContent = letter;
+        }
+
+        // Generate initial letter on page load
+        window.onload = function() {
+            generateLetter();
+        };
+    </script>
+</body>
+</html>
